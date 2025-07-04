@@ -1,0 +1,4 @@
+/* Solo mantener si el gráfico lo requiere y Tailwind no lo cubre */
+.chart {
+  aspect-ratio: 1/1;
+}
