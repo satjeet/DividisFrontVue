@@ -1,0 +1,5 @@
+# Archivo generado automáticamente para build Docker.
+# Puedes personalizar las variables si necesitas diferencias entre local y producción.
+
+VITE_API_URL=http://localhost:8000/api/
+# Agrega aquí otras variables necesarias para tu frontend en producción.

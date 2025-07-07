@@ -1,10 +1,7 @@
 #!/bin/sh
 
-# Inicia nginx en segundo plano
-nginx
+PORT=${PORT:-80}
+sed -i "s/PORT_PLACEHOLDER/$PORT/g" /etc/nginx/conf.d/default.conf
 
-# Bucle para rotar logs cada hora
-while true; do
-  logrotate /etc/logrotate.d/nginx
-  sleep 3600
-done
+# Ejecuta nginx en primer plano (modo recomendado para Cloud Run)
+nginx -g 'daemon off;'
