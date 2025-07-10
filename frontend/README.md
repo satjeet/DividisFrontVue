@@ -48,10 +48,15 @@ COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 **Para desplegar en Cloud Run o cualquier servidor donde el backend no esté en la misma red Docker:**
 
-1. Cambia esa línea por:
+1. Verifica que esta descomentada la siguiente linea:
    ```dockerfile
-   COPY nginx.cloudrun.conf /etc/nginx/conf.d/default.conf
-   ```
+
+   # Configuración específica para Cloud Run
+COPY nginx.cloudrun.conf /etc/nginx/conf.d/default.conf
+
+# Para Localhost, descomenta la siguiente línea  y comenta la anterior:
+ # COPY nginx.conf /etc/nginx/conf.d/default.conf
+
 2. Construye y sube la imagen normalmente.
 
 **Para desarrollo local con Docker Compose:**
