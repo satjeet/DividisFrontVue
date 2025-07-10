@@ -6,6 +6,43 @@ Learn more about the recommended Project Setup and IDE Support in the [Vue Docs 
 
 ---
 
+## 🔄 Alternar entre entornos local y producción
+
+Ahora existen versiones separadas para los archivos principales según el entorno que vayas a usar (local o cloud):
+
+| Archivo principal           | Versión local                | Versión cloud                |
+|----------------------------|------------------------------|------------------------------|
+| Dockerfile                 | Dockerfile.docklocal         | Dockerfile.dockcloud         |
+| docker-compose.yml         | docker-compose.local.yml     | docker-compose.cloud.yml     |
+
+**Antes de levantar el entorno, reemplaza los archivos principales por la versión correspondiente:**
+
+### Para desarrollo local:
+
+```bash
+cp Dockerfile.docklocal Dockerfile
+cp docker-compose.local.yml docker-compose.yml
+```
+
+### Para producción/cloud:
+
+```bash
+cp Dockerfile.dockcloud Dockerfile
+cp docker-compose.cloud.yml docker-compose.yml
+```
+
+Luego ejecuta:
+
+```bash
+docker-compose build
+docker-compose up
+```
+
+**No mezcles archivos de distintos entornos.**  
+Asegúrate de editar solo el archivo de variables correspondiente (`.env.docker` para local, `.env.production` para cloud).
+
+---
+
 ## 🚀 Guía rápida para desarrollo y despliegue
 
 ### 1. Prerrequisitos

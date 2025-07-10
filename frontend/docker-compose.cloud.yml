@@ -6,14 +6,11 @@ services:
       dockerfile: Dockerfile
     ports:
       - "3000:80"
-    env_file: .env.docker
+    env_file: .env
     restart: unless-stopped
-    volumes:
-      - ./public:/app/public:ro
-      - ./src:/app/src:ro
     networks:
       - dividis_network
 
 networks:
   dividis_network:
-   external: true
+    external: true
